@@ -27,10 +27,10 @@ const Banner = () => {
                 onSlideChange={() => console.log('slide change')}
                 onSwiper={(swiper) => console.log(swiper)}
             >
-                <SwiperSlide><img className='h-[480px] w-full rounded-lg' src={banner2} alt="" /></SwiperSlide>
-                <SwiperSlide><img className='h-[480px] w-full rounded-lg' src={banner1} alt="" /></SwiperSlide>
-                <SwiperSlide><img className='h-[480px] w-full rounded-lg' src='https://i.postimg.cc/NfP2QbxB/mountain3.jpg' alt="" /></SwiperSlide>
-                <SwiperSlide><img className='h-[480px] w-full rounded-lg' src={banner4} alt="" /></SwiperSlide>
+                <SwiperSlide><img className=' h-[300px] md:h-[480px] w-full rounded-lg' src={banner2} alt="" /></SwiperSlide>
+                <SwiperSlide><img className='h-[300px] md:h-[480px] w-full rounded-lg' src={banner1} alt="" /></SwiperSlide>
+                <SwiperSlide><img className='h-[300px] md:h-[480px] w-full rounded-lg' src='https://i.postimg.cc/NfP2QbxB/mountain3.jpg' alt="" /></SwiperSlide>
+                <SwiperSlide><img className='h-[300px] md:h-[480px] w-full rounded-lg' src={banner4} alt="" /></SwiperSlide>
             </Swiper>
         </div>
     );

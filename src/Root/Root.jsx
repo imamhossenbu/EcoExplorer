@@ -7,7 +7,7 @@ import 'animate.css';
 const Root = () => {
     return (
         <div>
-            <section>
+            <section className="h-full">
                 <Navbar></Navbar>
             </section>
             <section>

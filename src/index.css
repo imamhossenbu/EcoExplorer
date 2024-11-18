@@ -7,4 +7,10 @@
 
 body{
     font-family: "Lora", serif;
+    height: 100%;
+}
+
+
+html{
+    height: 100%;
 }
