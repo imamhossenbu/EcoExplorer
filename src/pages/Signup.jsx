@@ -50,7 +50,6 @@ const Signup = () => {
                 setSuccess('');
             });
 
-        console.log("Form Submitted:", { name, photoUrl, email, password });
     };
 
     const handleGoogleLogin = () => {
