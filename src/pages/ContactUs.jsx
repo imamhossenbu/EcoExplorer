@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
-import {ReactTyped} from "react-typed";
+import { ReactTyped } from "react-typed";
 import "animate.css";
+import Swal from 'sweetalert2'
 
 const ContactUs = () => {
     const [formData, setFormData] = useState({
@@ -17,9 +18,21 @@ const ContactUs = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert("Thank you for reaching out!");
+        Swal.fire({
+            title: 'Successful',
+            text: 'Thanks for messaging us!',
+            icon: 'success',
+            confirmButtonText: 'Close',
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown' // Animation when the alert shows
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp' // Animation when the alert hides
+            }
+        });
         setFormData({ name: "", email: "", message: "" });
     };
+    
 
     return (
         <div className="relative bg-gradient-to-br from-green-100 to-blue-100 py-20 lg:py-28">
@@ -43,7 +56,7 @@ const ContactUs = () => {
 
             {/* Contact Form */}
             <div className="w-11/12 lg:w-2/5 mx-auto">
-                <form onSubmit={handleSubmit} className="space-y-8 bg-white bg-opacity-90 p-10 rounded-xl shadow-2xl animate__animated animate__fadeInUp">
+                <form onSubmit={handleSubmit} className="space-y-4 bg-white bg-opacity-90 p-10 rounded-xl shadow-2xl animate__animated animate__fadeInUp">
                     <div>
                         <label htmlFor="name" className="block text-lg font-semibold text-gray-700">Your Name</label>
                         <input
@@ -96,23 +109,23 @@ const ContactUs = () => {
 
             {/* Contact Information Section */}
             <div className="mt-20 text-center lg:text-left max-w-3xl mx-auto">
-                <h3 className="text-3xl font-semibold text-gray-800 mb-8">Reach Us at</h3>
+                <h3 className="text-2xl font-semibold text-gray-800 mb-8">Reach Us at</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-gray-700 animate__animated animate__fadeIn">
                     {/* Address */}
                     <div className="flex flex-col items-center md:items-start space-y-3">
-                        <FaMapMarkerAlt className="text-4xl text-green-600" />
+                        <FaMapMarkerAlt className="text-3xl text-green-600" />
                         <h4 className="font-semibold text-xl">Visit Us</h4>
                         <p>123 Adventure St., Eco City, USA</p>
                     </div>
                     {/* Phone */}
                     <div className="flex flex-col items-center md:items-start space-y-3">
-                        <FaPhoneAlt className="text-4xl text-blue-600" />
+                        <FaPhoneAlt className="text-3xl text-blue-600" />
                         <h4 className="font-semibold text-xl">Call Us</h4>
                         <p>+1 234 567 890</p>
                     </div>
                     {/* Email */}
                     <div className="flex flex-col items-center md:items-start space-y-3">
-                        <FaEnvelope className="text-4xl text-yellow-600" />
+                        <FaEnvelope className="text-3xl text-yellow-600" />
                         <h4 className="font-semibold text-xl">Email Us</h4>
                         <p>contact@ecoexplorer.com</p>
                     </div>
