@@ -1,4 +1,5 @@
 import { FaLeaf, FaHiking, FaGlobe, FaUmbrellaBeach } from "react-icons/fa";
+import { ReactTyped } from "react-typed";
 
 const Services = () => {
     const services = [
@@ -26,7 +27,14 @@ const Services = () => {
 
     return (
         <div className="my-20 w-11/12 mx-auto">
-            <h2 className="text-center text-3xl font-bold py-6">Our Services</h2>
+            <h2 className="text-center text-3xl font-bold py-6">
+                <ReactTyped
+                    strings={["Our Services", "Eco-Friendly Experiences", "Adventure Awaits"]}
+                    typeSpeed={40}
+                    backSpeed={30}
+                    loop
+                />
+            </h2>
             <p className="text-center text-gray-600 max-w-2xl mx-auto mb-8">
                 Discover the range of eco-adventures and unique experiences we offer. Whether you love mountains, beaches, or global travel, we have something for every nature lover.
             </p>

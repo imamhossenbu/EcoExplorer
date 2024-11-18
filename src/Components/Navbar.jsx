@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     return (
-        <div className="navbar bg-base-100 md:w-11/12 mx-auto py-5">
+        <div className="navbar bg-base-100 w-full lg:px-10 backdrop-blur-md py-5 fixed top-0 left-0 z-50">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -21,7 +21,8 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow-lg"
+                    >
                         <NavLink
                             to='/'
                             className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center'}
@@ -44,7 +45,7 @@ const Navbar = () => {
                 </div>
                 <a className="btn btn-ghost font-bold text-3xl">EcoExplorer</a>
             </div>
-            <div className="navbar-center hidden lg:flex items-center">
+            <div className="navbar-center hidden lg:flex items-center justify-center flex-grow">
                 <ul className="menu menu-horizontal px-1 space-x-4 text-md font-semibold">
                     <NavLink
                         to='/'
@@ -64,7 +65,6 @@ const Navbar = () => {
                     >
                         About
                     </NavLink>
-
                 </ul>
             </div>
             <div className="navbar-end">
