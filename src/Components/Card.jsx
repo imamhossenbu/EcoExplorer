@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 
 
 const Card = ({ card }) => {
-    const { adventureTitle, image, ecoFriendlyFeatures } = card;
+    const {id, adventureTitle, image, ecoFriendlyFeatures } = card;
     return (
         <div className="max-w-sm rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105  bg-white">
             <img src={image} alt={adventureTitle} className="w-full h-48 object-cover" />
@@ -12,9 +13,9 @@ const Card = ({ card }) => {
                         <li key={index}>{feature}</li>
                     ))}
                 </ul>
-                <button className="w-full py-2 px-4 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors">
+                <Link to={`/details/${id}`} className="w-full py-2 px-4 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors">
                     Explore Now
-                </button>
+                </Link>
             </div>
         </div>
     );

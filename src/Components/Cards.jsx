@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
-import 'animate.css';
+
 
 const Cards = () => {
     const [cards, setCards] = useState([]);

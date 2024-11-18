@@ -1,0 +1,17 @@
+[
+    {
+        "name": "John Doe",
+        "location": "California, USA",
+        "message": "The forest camping experience was truly breathtaking! Highly recommended for anyone seeking a peaceful getaway."
+    },
+    {
+        "name": "Sarah Lee",
+        "location": "Toronto, Canada",
+        "message": "Kayaking in the rapids was an adventure I’ll never forget. Thank you for a well-organized experience!"
+    },
+    {
+        "name": "Michael Smith",
+        "location": "Sydney, Australia",
+        "message": "Mountain hiking was a challenging yet rewarding experience. The guides were fantastic!"
+    }
+]

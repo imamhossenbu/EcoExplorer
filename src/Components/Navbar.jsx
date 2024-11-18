@@ -22,8 +22,24 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <NavLink to='/'>Home</NavLink>
-                        <NavLink to='/about'>About</NavLink>
+                        <NavLink
+                            to='/'
+                            className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center'}
+                        >
+                            Home
+                        </NavLink>
+                        <NavLink
+                            to='/details'
+                            className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center'}
+                        >
+                            Details
+                        </NavLink>
+                        <NavLink
+                            to='/about'
+                            className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center'}
+                        >
+                            About
+                        </NavLink>
                     </ul>
                 </div>
                 <a className="btn btn-ghost font-bold text-3xl">EcoExplorer</a>
@@ -37,11 +53,18 @@ const Navbar = () => {
                         Home
                     </NavLink>
                     <NavLink
+                        to='/details'
+                        className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center'}
+                    >
+                        Details
+                    </NavLink>
+                    <NavLink
                         to='/about'
                         className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center'}
                     >
                         About
                     </NavLink>
+
                 </ul>
             </div>
             <div className="navbar-end">
