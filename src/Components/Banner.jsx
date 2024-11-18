@@ -11,7 +11,7 @@ import { EffectFlip, Pagination, Navigation, Scrollbar,Autoplay} from 'swiper/mo
 
 const Banner = () => {
     return (
-        <div className='w-11/12 mx-auto'>
+        <div className='w-11/12 mx-auto pt-8'>
             <Swiper
                 modules={[EffectFlip, Navigation, Pagination, Scrollbar,Autoplay]}
                 spaceBetween={50}

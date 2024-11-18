@@ -7,6 +7,7 @@ import CardDetails from "../pages/CardDetails";
 import LoginForm from "../pages/LoginForm";
 import Signup from "../pages/Signup";
 import PrivateRoute from "./PrivateRoute";
+import ContactUs from "../pages/ContactUs";
 
 
 export const router = createBrowserRouter([
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
       {
         path: '/signup',
         element: <Signup></Signup>
+      },
+      {
+        path:'/contact',
+        element:<ContactUs></ContactUs>
       }
 
     ]

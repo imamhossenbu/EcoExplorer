@@ -7,8 +7,8 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="w-full mb-20">
-            <div className="fixed top-0 left-0 z-50 bg-base-100 w-full lg:px-10 backdrop-blur-md py-5">
+        <div className="w-full mb-16">
+            <div className="fixed top-0 left-0 z-50 bg-base-100 w-full lg:px-10 backdrop-blur-md py-3">
                 <div className="navbar">
                     <div className="navbar-start">
                         <div className="dropdown">
@@ -42,6 +42,12 @@ const Navbar = () => {
                                 >
                                     About
                                 </NavLink>
+                                <NavLink
+                                    to='/contact'
+                                    className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center'}
+                                >
+                                    Contact Us
+                                </NavLink>
                             </ul>
                         </div>
                         <a className="btn btn-ghost font-bold text-3xl">EcoExplorer</a>
@@ -59,6 +65,12 @@ const Navbar = () => {
                                 className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center'}
                             >
                                 About
+                            </NavLink>
+                            <NavLink
+                                to='/contact'
+                                className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center'}
+                            >
+                                Contact Us
                             </NavLink>
                         </ul>
                     </div>

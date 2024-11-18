@@ -12,7 +12,7 @@ const About = () => {
                 <h2 className="text-4xl font-extrabold text-gray-800">
                     <ReactTyped
                         strings={["About Us"]}
-                        typeSpeed={100}
+                        typeSpeed={50}
                         backSpeed={50}
                         loop={true}
                     />
@@ -60,25 +60,26 @@ const About = () => {
 
             {/* Team Section */}
             <div className="my-16 animate__animated animate__fadeIn animate__delay-4s">
-                <h3 className="text-3xl font-bold text-center text-gray-800 mb-6">Meet Our Team</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    <div className="flex flex-col items-center p-6 bg-white rounded-lg shadow-lg">
-                        <img src="https://via.placeholder.com/150" alt="Team Member" className="w-24 h-24 rounded-full mb-4" />
-                        <h4 className="text-lg font-semibold text-gray-800">Alice Johnson</h4>
-                        <p className="text-gray-600">Lead Guide</p>
-                    </div>
-                    <div className="flex flex-col items-center p-6 bg-white rounded-lg shadow-lg">
-                        <img src="https://via.placeholder.com/150" alt="Team Member" className="w-24 h-24 rounded-full mb-4" />
-                        <h4 className="text-lg font-semibold text-gray-800">Mark Lee</h4>
-                        <p className="text-gray-600">Operations Manager</p>
-                    </div>
-                    <div className="flex flex-col items-center p-6 bg-white rounded-lg shadow-lg">
-                        <img src="https://via.placeholder.com/150" alt="Team Member" className="w-24 h-24 rounded-full mb-4" />
-                        <h4 className="text-lg font-semibold text-gray-800">Jessica Miller</h4>
-                        <p className="text-gray-600">Sustainability Officer</p>
-                    </div>
-                </div>
-            </div>
+    <h3 className="text-3xl font-bold text-center text-gray-800 mb-6">Meet Our Team</h3>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="flex flex-col items-center p-6 bg-white rounded-lg shadow-lg">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Alice Johnson" className="w-24 h-24 rounded-full mb-4" />
+            <h4 className="text-lg font-semibold text-gray-800">Alice Johnson</h4>
+            <p className="text-gray-600">Lead Guide</p>
+        </div>
+        <div className="flex flex-col items-center p-6 bg-white rounded-lg shadow-lg">
+            <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Mark Lee" className="w-24 h-24 rounded-full mb-4" />
+            <h4 className="text-lg font-semibold text-gray-800">Mark Lee</h4>
+            <p className="text-gray-600">Operations Manager</p>
+        </div>
+        <div className="flex flex-col items-center p-6 bg-white rounded-lg shadow-lg">
+            <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="Jessica Miller" className="w-24 h-24 rounded-full mb-4" />
+            <h4 className="text-lg font-semibold text-gray-800">Jessica Miller</h4>
+            <p className="text-gray-600">Sustainability Officer</p>
+        </div>
+    </div>
+</div>
+
 
         </div>
     );
