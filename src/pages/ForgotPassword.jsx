@@ -9,7 +9,6 @@ const ForgotPassword = () => {
         // Redirect to Gmail to reset password
         window.open('https://mail.google.com/', '_blank');
     };
-    console.log(email,location);
 
     return (
         <div className="min-h-screen flex justify-center items-center bg-gray-100 py-10">

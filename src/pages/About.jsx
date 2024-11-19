@@ -12,7 +12,7 @@ const About = () => {
             </Helmet>
             {/* Header Section with React Typed Animation */}
             <div className="text-center mb-12 animate__animated animate__fadeIn animate__delay-1s">
-                <h2 className="text-4xl font-extrabold text-gray-800">
+                <h2 className="text-4xl font-extrabold text-gray-500">
                     <ReactTyped
                         strings={["About Us"]}
                         typeSpeed={50}
