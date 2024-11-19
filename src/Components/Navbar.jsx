@@ -5,6 +5,7 @@ import { AuthContext } from "../provider/AuthProvider";
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
     const navigate = useNavigate();
+    console.log(user);
 
     return (
         <div className="w-full mb-16">
@@ -77,9 +78,14 @@ const Navbar = () => {
                     <div className="navbar-end">
                         {
                             user ? (
-                                <a onClick={() => logout(navigate('/login'))} className="btn btn-neutral font-semibold">
+                                <div>
+                                    <a onClick={() => logout(navigate('/login'))} className="btn btn-neutral font-semibold">
                                     Log Out
                                 </a>
+                                <h1>{user.email}</h1>
+                                <img src={user.photoURL}/>
+                                </div>
+                                
                             ) : (
                                 <NavLink to='/login' className="btn btn-neutral font-semibold">
                                     Log In

@@ -1,23 +1,25 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Signup = () => {
     const { setUser, signup, googleLogin } = useContext(AuthContext);
     const navigate = useNavigate();
-
-    const [name, setName] = useState('');
-    const [photoUrl, setPhotoUrl] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}$/;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}$/;
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const name = e.target.value.name;
+        const photoUrl = e.target.value.photoUrl;
+        const email = e.target.value.email;
+        const password = e.target.value.password;
 
         if (!name || !photoUrl || !email || !password) {
             setError("All fields are required.");
@@ -41,6 +43,7 @@ const Signup = () => {
             .then((result) => {
                 const data = result.user;
                 setUser(data);
+                toast.success('Sign up Successful.', { position: "top-center" });
                 navigate('/');
                 setSuccess('Signup Successful!');
                 setError('');
@@ -49,16 +52,20 @@ const Signup = () => {
                 setError(error.message);
                 setSuccess('');
             });
-
     };
 
     const handleGoogleLogin = () => {
         googleLogin()
             .then((result) => {
                 setUser(result.user);
+                toast.success('Sign in Successful.', { position: "top-center" });
                 navigate('/');
             })
             .catch((error) => setError(error.message));
+    };
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
     };
 
     return (
@@ -69,13 +76,11 @@ const Signup = () => {
                 <form onSubmit={handleSubmit}>
                     {/* Name */}
                     <div className="mb-4">
-                        <label htmlFor="name" className="block text-sm font-semibold text-gray-700">Full Name</label>
+                        <label for="name" className="block text-sm font-semibold text-gray-700">Full Name</label>
                         <input
                             type="text"
                             id="name"
                             name="name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
                             className="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
                             placeholder="Enter your full name"
                             required
@@ -84,13 +89,11 @@ const Signup = () => {
 
                     {/* Photo URL */}
                     <div className="mb-4">
-                        <label htmlFor="photoUrl" className="block text-sm font-semibold text-gray-700">Photo URL</label>
+                        <label for="photoUrl" className="block text-sm font-semibold text-gray-700">Photo URL</label>
                         <input
                             type="url"
                             id="photoUrl"
                             name="photoUrl"
-                            value={photoUrl}
-                            onChange={(e) => setPhotoUrl(e.target.value)}
                             className="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
                             placeholder="Enter your photo URL"
                             required
@@ -99,13 +102,11 @@ const Signup = () => {
 
                     {/* Email */}
                     <div className="mb-4">
-                        <label htmlFor="email" className="block text-sm font-semibold text-gray-700">Email</label>
+                        <label for="email" className="block text-sm font-semibold text-gray-700">Email</label>
                         <input
                             type="email"
                             id="email"
                             name="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
                             className="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
                             placeholder="Enter your email"
                             required
@@ -113,19 +114,27 @@ const Signup = () => {
                     </div>
 
                     {/* Password */}
-                    <div className="mb-6">
-                        <label htmlFor="password" className="block text-sm font-semibold text-gray-700">Password</label>
+                    <div className="mb-6 relative">
+                        <label for="password" className="block text-sm font-semibold text-gray-700">Password</label>
                         <input
-                            type="password"
+                            type={showPassword ? "text" : "password"}
                             id="password"
                             name="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
                             className="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
                             placeholder="Enter your password"
                             required
                         />
+                        <button
+                            type="button"
+                            onClick={togglePasswordVisibility}
+                            className="absolute right-3 top-[50px] md:top-[40px] lg:top-[50px] transform -translate-y-1/2 text-gray-500"
+                        >
+                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                        </button>
+
                     </div>
+
+
                     {/* Error message */}
                     {error && <p className="text-red-500 text-sm text-center mb-4">{error}</p>}
                     {/* Success message */}

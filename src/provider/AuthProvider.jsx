@@ -9,6 +9,7 @@ import {
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase.config";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 export const AuthContext = createContext();
@@ -32,7 +33,10 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         signOut(auth)
             .then(() => {
-                setUser(null); 
+                setUser(null);
+                toast.success('Log Out Successful.',{
+                    position: "top-center"
+                }) 
             })
             .catch((error) => {
                 console.error("Error during sign out:", error);
