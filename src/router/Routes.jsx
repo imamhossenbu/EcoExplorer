@@ -8,6 +8,7 @@ import LoginForm from "../pages/LoginForm";
 import Signup from "../pages/Signup";
 import PrivateRoute from "./PrivateRoute";
 import ContactUs from "../pages/ContactUs";
+import ForgotPassword from "../pages/ForgotPassword";
 
 
 export const router = createBrowserRouter([
@@ -44,6 +45,11 @@ export const router = createBrowserRouter([
       {
         path:'/contact',
         element:<ContactUs></ContactUs>
+      }
+      ,
+      {
+        path:'/forgot-password',
+        element:<ForgotPassword></ForgotPassword>
       }
 
     ]

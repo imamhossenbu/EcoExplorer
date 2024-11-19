@@ -6,17 +6,16 @@ import 'swiper/css/navigation';
 import banner1 from '../assets/banner1.jpg';
 import banner2 from '../assets/banner2.jpg';
 import banner4 from '../assets/banner4.jpg';
-import { EffectFlip, Pagination, Navigation, Scrollbar,Autoplay} from 'swiper/modules';
+import {Pagination, Navigation, Scrollbar,Autoplay} from 'swiper/modules';
 
 const Banner = () => {
     return (
         <div className='w-11/12 mx-auto pt-8'>
             <Swiper
-                modules={[EffectFlip, Navigation, Pagination, Scrollbar,Autoplay]}
+                modules={[ Navigation, Pagination, Scrollbar,Autoplay]}
                 spaceBetween={50}
                 slidesPerView={1}
                 navigation
-                effect={'flip'}
                 pagination={{ clickable: true }}
                 scrollbar={{ draggable: true }}
                 autoplay={{ delay: 5000, disableOnInteraction: false }}

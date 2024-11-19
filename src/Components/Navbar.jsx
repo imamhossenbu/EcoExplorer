@@ -80,17 +80,20 @@ const Navbar = () => {
                     <div className="navbar-end flex items-center space-x-4">
                         {user ? (
                             <div className="flex items-center space-x-4">
-                                <img title={user.displayName || user.email} 
-                                    src={user.photoURL}
-                                    alt="User Profile"
-                                    className="w-10 h-10 rounded-full border-2 border-blue-600 object-cover hover:scale-105 transition-transform"
-                                />
                                 <button
                                     onClick={() => logout(navigate('/login'))}
                                     className="btn btn-neutral font-semibold"
                                 >
                                     Log Out
                                 </button>
+                                <div>
+                                    <img title={user.displayName || user.email}
+                                        src={user.photoURL}
+                                        alt="User Profile"
+                                        className="w-10 h-10 rounded-full border-2 border-blue-600 object-cover hover:scale-105 transition-transform"
+                                    />
+                                </div>
+
                             </div>
                         ) : (
                             <NavLink to='/login' className="btn btn-neutral font-semibold">

@@ -3,6 +3,7 @@ import { AuthContext } from '../provider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { Helmet } from "react-helmet";
 
 const Signup = () => {
     const { setUser, signup, googleLogin, manageProfile } = useContext(AuthContext);
@@ -74,6 +75,9 @@ const Signup = () => {
 
     return (
         <div className="min-h-screen flex justify-center items-center bg-gray-100 py-10">
+            <Helmet>
+                <title>Sign Up|EcoExplorer</title>
+            </Helmet>
             <div className="w-full max-w-md p-8 bg-white shadow-lg rounded-lg">
                 <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
 

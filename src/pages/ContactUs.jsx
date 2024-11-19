@@ -3,6 +3,7 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { ReactTyped } from "react-typed";
 import "animate.css";
 import Swal from 'sweetalert2'
+import { Helmet } from "react-helmet";
 
 const ContactUs = () => {
     const [formData, setFormData] = useState({
@@ -36,6 +37,9 @@ const ContactUs = () => {
 
     return (
         <div className="relative bg-gradient-to-br from-green-100 to-blue-100 py-20 lg:py-28">
+            <Helmet>
+                <title>Contact | EcoExplorer</title>
+            </Helmet>
             {/* Background Decoration */}
             <div className="absolute inset-0 bg-[url('https://example.com/contact-bg.jpg')] opacity-10 bg-cover bg-center"></div>
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const CardDetails = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -38,6 +39,9 @@ const CardDetails = () => {
 
     return (
         <div className="w-11/12 mx-auto">
+            <Helmet>
+                <title>Details | EcoExplorer</title>
+            </Helmet>
             <div className="py-10 px-6 max-w-4xl mx-auto bg-white rounded-lg shadow-lg my-20">
                 {/* Title and Image */}
                 <div className="text-center">

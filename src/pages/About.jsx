@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
 import {ReactTyped} from 'react-typed';
 import 'animate.css';
-import { AuthContext } from '../provider/AuthProvider';
+import { Helmet } from "react-helmet";
 
 const About = () => {
 
     return (
         <div className="w-11/12 mx-auto py-16">
+            <Helmet>
+                <title>About|EcoExplorer</title>
+            </Helmet>
             {/* Header Section with React Typed Animation */}
             <div className="text-center mb-12 animate__animated animate__fadeIn animate__delay-1s">
                 <h2 className="text-4xl font-extrabold text-gray-800">

@@ -1,8 +1,9 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { Helmet } from "react-helmet";
 
 const LoginForm = () => {
     const { setUser, login, googleLogin } = useContext(AuthContext);
@@ -28,7 +29,6 @@ const LoginForm = () => {
                 toast.success('Log in Successful.', {
                     position: "top-center"
                 });
-                // Use location.state.from or fallback to '/' if not available
                 navigate(location.state?.from || '/');
             })
             .catch((error) => setError(error.message));
@@ -48,11 +48,14 @@ const LoginForm = () => {
 
     return (
         <div className="min-h-screen flex justify-center items-center bg-gray-100 py-10">
+            <Helmet>
+                <title>Log In|EcoExplorer</title>
+            </Helmet>
             <div className="w-full max-w-md p-8 bg-white shadow-lg rounded-lg">
                 <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
-                        <label for="email" className="block text-sm font-semibold text-gray-700">Email</label>
+                        <label htmlFor="email" className="block text-sm font-semibold text-gray-700">Email</label>
                         <input
                             type="email"
                             id="email"
@@ -64,7 +67,7 @@ const LoginForm = () => {
                     </div>
 
                     <div className="mb-6 relative">
-                        <label for="password" className="block text-sm font-semibold text-gray-700">Password</label>
+                        <label htmlFor="password" className="block text-sm font-semibold text-gray-700">Password</label>
                         <input
                             type={showPassword ? "text" : "password"}
                             id="password"
@@ -76,7 +79,7 @@ const LoginForm = () => {
                         <button
                             type="button"
                             onClick={togglePasswordVisibility}
-                            className="absolute right-3 top-[42px] md:top-[42px] lg:top-[42px] text-gray-500"
+                            className="absolute right-3 top-[42px] text-gray-500"
                         >
                             {showPassword ? <FaEyeSlash /> : <FaEye />}
                         </button>
@@ -87,8 +90,14 @@ const LoginForm = () => {
                             <input type="checkbox" className="mr-2" />
                             <span className="text-sm text-gray-700">Remember me</span>
                         </div>
-                        <a href="#" className="text-sm text-blue-600 hover:text-blue-800">Forgot password?</a>
+                        <Link 
+                            to={{ pathname: '/forgot-password'}} 
+                            className="text-sm text-blue-600 hover:text-blue-800"
+                        >
+                            Forgot password?
+                        </Link>
                     </div>
+
                     {error && <p className="text-red-500 text-sm text-center mb-4">{error}</p>}
                     <button
                         type="submit"
