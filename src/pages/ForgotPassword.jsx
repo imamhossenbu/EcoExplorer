@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 
@@ -10,11 +9,12 @@ const ForgotPassword = () => {
         // Redirect to Gmail to reset password
         window.open('https://mail.google.com/', '_blank');
     };
+    console.log(email,location);
 
     return (
         <div className="min-h-screen flex justify-center items-center bg-gray-100 py-10">
             <Helmet>
-                <title>Forgot|EcoExplorer</title>
+                <title>Forgot | EcoExplorer</title>
             </Helmet>
             <div className="w-full max-w-md p-8 bg-white shadow-lg rounded-lg">
                 <h2 className="text-2xl font-bold text-center mb-6">Forgot Password</h2>

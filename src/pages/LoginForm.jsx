@@ -9,6 +9,7 @@ const LoginForm = () => {
     const { setUser, login, googleLogin } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
+    const [email, setEmail] = useState('');
     const [error, setError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
@@ -16,7 +17,6 @@ const LoginForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const email = e.target.email.value;
         const password = e.target.password.value;
         if (!email || !password) {
             setError("Please fill in all fields.");
@@ -45,11 +45,12 @@ const LoginForm = () => {
             })
             .catch((error) => setError(error.message));
     };
+    console.log(email,location);
 
     return (
         <div className="min-h-screen flex justify-center items-center bg-gray-100 py-10">
             <Helmet>
-                <title>Log In|EcoExplorer</title>
+                <title>Log In | EcoExplorer</title>
             </Helmet>
             <div className="w-full max-w-md p-8 bg-white shadow-lg rounded-lg">
                 <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
@@ -63,6 +64,8 @@ const LoginForm = () => {
                             className="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
                             placeholder="Enter your email"
                             required
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
 
@@ -91,7 +94,7 @@ const LoginForm = () => {
                             <span className="text-sm text-gray-700">Remember me</span>
                         </div>
                         <Link 
-                            to={{ pathname: '/forgot-password'}} 
+                            to='/forgot-password' state={{email}}  // Passing email in Link's state
                             className="text-sm text-blue-600 hover:text-blue-800"
                         >
                             Forgot password?
@@ -117,7 +120,7 @@ const LoginForm = () => {
 
                 <div className="mt-6 text-center">
                     <span className="text-sm text-gray-700">Don't have an account? </span>
-                    <a href="/signup" className="text-sm text-blue-600 hover:text-blue-800">Sign Up</a>
+                    <Link to="/signup" className="text-sm text-blue-600 hover:text-blue-800">Sign Up</Link>
                 </div>
             </div>
         </div>

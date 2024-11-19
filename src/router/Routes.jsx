@@ -9,6 +9,8 @@ import Signup from "../pages/Signup";
 import PrivateRoute from "./PrivateRoute";
 import ContactUs from "../pages/ContactUs";
 import ForgotPassword from "../pages/ForgotPassword";
+import MyProfile from "../pages/MyProfile";
+import UpdateProfile from "../pages/UpdateProfile";
 
 
 export const router = createBrowserRouter([
@@ -43,13 +45,23 @@ export const router = createBrowserRouter([
         element: <Signup></Signup>
       },
       {
-        path:'/contact',
-        element:<ContactUs></ContactUs>
+        path: '/contact',
+        element: <ContactUs></ContactUs>
       }
       ,
       {
-        path:'/forgot-password',
-        element:<ForgotPassword></ForgotPassword>
+        path: '/forgot-password',
+        element: <ForgotPassword></ForgotPassword>
+      },
+      {
+        path: '/profile',
+        element: <PrivateRoute>
+          <MyProfile></MyProfile>
+        </PrivateRoute>
+      },
+      {
+        path: '/update-profile',
+        element: <UpdateProfile></UpdateProfile>
       }
 
     ]

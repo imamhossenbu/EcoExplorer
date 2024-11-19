@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import { ReactTyped } from "react-typed";
 import "animate.css";
-
+import { Helmet } from "react-helmet";
 const ErrorPage = () => {
     return (
         <div className="min-h-screen flex items-center justify-center p-5 bg-cover bg-center">
+            <Helmet>
+                <title>Error | EcoExplorer.</title>
+            </Helmet>
             <div className="text-center w-full max-w-lg mx-auto bg-white bg-opacity-70 p-8 rounded-lg shadow-lg">
                 <h1 className="text-5xl font-bold text-gray-800 animate__animated animate__fadeIn animate__delay-1s">
                     <ReactTyped

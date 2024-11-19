@@ -8,7 +8,7 @@ const Navbar = () => {
 
     return (
         <div className="w-full mb-16">
-            <div className="fixed top-0 left-0 z-50 bg-base-100 w-full lg:px-10 backdrop-blur-md py-3 shadow-md">
+            <div className="fixed top-0 left-0 z-50 bg-base-100 w-full lg:px-10 backdrop-blur-md py-3 ">
                 <div className="navbar">
                     <div className="navbar-start">
                         <div className="dropdown">
@@ -54,7 +54,7 @@ const Navbar = () => {
                     </div>
 
                     <div className="navbar-center hidden lg:flex items-center justify-center flex-grow">
-                        <ul className="menu menu-horizontal px-1 space-x-4 text-md font-semibold">
+                        <ul className="menu menu-horizontal px-1 space-x-2 text-md font-semibold">
                             <NavLink
                                 to='/'
                                 className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center hover:bg-blue-300 hover:text-white rounded-lg px-6 py-2 transition-colors'}
@@ -82,21 +82,21 @@ const Navbar = () => {
                             <div className="flex items-center space-x-4">
                                 <button
                                     onClick={() => logout(navigate('/login'))}
-                                    className="btn btn-neutral font-semibold"
+                                    className="btn btn-neutral font-semibold hover:scale-90"
                                 >
                                     Log Out
                                 </button>
                                 <div>
-                                    <img title={user.displayName || user.email}
+                                    <img title={user.displayName || user.email}  onClick={()=>navigate('/profile')}
                                         src={user.photoURL}
                                         alt="User Profile"
-                                        className="w-10 h-10 rounded-full border-2 border-blue-600 object-cover hover:scale-105 transition-transform"
+                                        className="w-10 h-10 rounded-full border-2 cursor-pointer border-blue-600 object-cover hover:scale-105 transition-transform"
                                     />
                                 </div>
 
                             </div>
                         ) : (
-                            <NavLink to='/login' className="btn btn-neutral font-semibold">
+                            <NavLink to='/login' className="btn btn-neutral font-semibold hover:scale-90">
                                 Log In
                             </NavLink>
                         )}
