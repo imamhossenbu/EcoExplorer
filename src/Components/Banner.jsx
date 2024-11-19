@@ -5,7 +5,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import banner1 from '../assets/banner1.jpg';
 import banner2 from '../assets/banner2.jpg';
-// import banner3 from '../assets/banner3.jpg';
 import banner4 from '../assets/banner4.jpg';
 import { EffectFlip, Pagination, Navigation, Scrollbar,Autoplay} from 'swiper/modules';
 
@@ -24,8 +23,6 @@ const Banner = () => {
                 speed={1000}
                 loop={true} 
                 loopedSlides={4}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
             >
                 <SwiperSlide><img className=' h-[300px] md:h-[480px] w-full rounded-lg' src={banner2} alt="" /></SwiperSlide>
                 <SwiperSlide><img className='h-[300px] md:h-[480px] w-full rounded-lg' src={banner1} alt="" /></SwiperSlide>

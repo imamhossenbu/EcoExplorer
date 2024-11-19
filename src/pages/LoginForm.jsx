@@ -1,11 +1,12 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const LoginForm = () => {
     const { setUser, login, googleLogin } = useContext(AuthContext);
+    const location = useLocation();
     const navigate = useNavigate();
     const [error, setError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -14,8 +15,8 @@ const LoginForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const email = e.target.value.email;
-        const password = e.target.value.password;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
         if (!email || !password) {
             setError("Please fill in all fields.");
             return;
@@ -27,7 +28,8 @@ const LoginForm = () => {
                 toast.success('Log in Successful.', {
                     position: "top-center"
                 });
-                navigate('/');
+                // Use location.state.from or fallback to '/' if not available
+                navigate(location.state?.from || '/');
             })
             .catch((error) => setError(error.message));
     };
@@ -39,7 +41,7 @@ const LoginForm = () => {
                 toast.success('Log in Successful.', {
                     position: "top-center"
                 });
-                navigate('/');
+                navigate(location.state?.from || '/');
             })
             .catch((error) => setError(error.message));
     };

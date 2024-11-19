@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Signup = () => {
-    const { setUser, signup, googleLogin } = useContext(AuthContext);
+    const { setUser, signup, googleLogin, manageProfile } = useContext(AuthContext);
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
@@ -16,10 +16,10 @@ const Signup = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const name = e.target.value.name;
-        const photoUrl = e.target.value.photoUrl;
-        const email = e.target.value.email;
-        const password = e.target.value.password;
+        const name = e.target.name.value;
+        const photoUrl = e.target.photoUrl.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
 
         if (!name || !photoUrl || !email || !password) {
             setError("All fields are required.");
@@ -43,10 +43,14 @@ const Signup = () => {
             .then((result) => {
                 const data = result.user;
                 setUser(data);
-                toast.success('Sign up Successful.', { position: "top-center" });
-                navigate('/');
-                setSuccess('Signup Successful!');
-                setError('');
+                manageProfile(name, photoUrl) // Pass the name and photoUrl here
+                    .then(() => {
+                        toast.success('Sign up Successful.', { position: "top-center" });
+                        navigate('/');
+                        setSuccess('Signup Successful!');
+                        setError('');
+                    })
+                    .catch((error) => setError(error.message));
             })
             .catch((error) => {
                 setError(error.message);

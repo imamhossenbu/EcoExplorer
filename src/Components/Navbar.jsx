@@ -5,11 +5,10 @@ import { AuthContext } from "../provider/AuthProvider";
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
     const navigate = useNavigate();
-    console.log(user);
 
     return (
         <div className="w-full mb-16">
-            <div className="fixed top-0 left-0 z-50 bg-base-100 w-full lg:px-10 backdrop-blur-md py-3">
+            <div className="fixed top-0 left-0 z-50 bg-base-100 w-full lg:px-10 backdrop-blur-md py-3 shadow-md">
                 <div className="navbar">
                     <div className="navbar-start">
                         <div className="dropdown">
@@ -33,65 +32,71 @@ const Navbar = () => {
                             >
                                 <NavLink
                                     to='/'
-                                    className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center'}
+                                    className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center hover:bg-blue-300 hover:text-white rounded-lg px-6 py-2 transition-colors'}
                                 >
                                     Home
                                 </NavLink>
                                 <NavLink
                                     to='/about'
-                                    className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center'}
+                                    className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center hover:bg-blue-300 hover:text-white rounded-lg px-6 py-2 transition-colors'}
                                 >
                                     About
                                 </NavLink>
                                 <NavLink
                                     to='/contact'
-                                    className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center'}
+                                    className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center hover:bg-blue-300 hover:text-white rounded-lg px-6 py-2 transition-colors'}
                                 >
                                     Contact Us
                                 </NavLink>
                             </ul>
                         </div>
-                        <a className="btn btn-ghost font-bold text-3xl">EcoExplorer</a>
+                        <a className="btn btn-ghost font-bold text-2xl md:text-3xl">EcoExplorer</a>
                     </div>
+
                     <div className="navbar-center hidden lg:flex items-center justify-center flex-grow">
                         <ul className="menu menu-horizontal px-1 space-x-4 text-md font-semibold">
                             <NavLink
                                 to='/'
-                                className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center'}
+                                className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center hover:bg-blue-300 hover:text-white rounded-lg px-6 py-2 transition-colors'}
                             >
                                 Home
                             </NavLink>
                             <NavLink
                                 to='/about'
-                                className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center'}
+                                className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center hover:bg-blue-300 hover:text-white rounded-lg px-6 py-2 transition-colors'}
                             >
                                 About
                             </NavLink>
                             <NavLink
                                 to='/contact'
-                                className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center'}
+                                className={({ isActive }) => isActive ? 'bg-blue-600 text-white rounded-lg px-6 py-2 inline-flex items-center' : 'inline-flex items-center hover:bg-blue-300 hover:text-white rounded-lg px-6 py-2 transition-colors'}
                             >
                                 Contact Us
                             </NavLink>
                         </ul>
                     </div>
-                    <div className="navbar-end">
-                        {
-                            user ? (
-                                <div>
-                                    <a onClick={() => logout(navigate('/login'))} className="btn btn-neutral font-semibold">
+
+
+                    <div className="navbar-end flex items-center space-x-4">
+                        {user ? (
+                            <div className="flex items-center space-x-4">
+                                <img title={user.displayName || user.email} 
+                                    src={user.photoURL}
+                                    alt="User Profile"
+                                    className="w-10 h-10 rounded-full border-2 border-blue-600 object-cover hover:scale-105 transition-transform"
+                                />
+                                <button
+                                    onClick={() => logout(navigate('/login'))}
+                                    className="btn btn-neutral font-semibold"
+                                >
                                     Log Out
-                                </a>
-                                <h1>{user.email}</h1>
-                                <img src={user.photoURL}/>
-                                </div>
-                                
-                            ) : (
-                                <NavLink to='/login' className="btn btn-neutral font-semibold">
-                                    Log In
-                                </NavLink>
-                            )
-                        }
+                                </button>
+                            </div>
+                        ) : (
+                            <NavLink to='/login' className="btn btn-neutral font-semibold">
+                                Log In
+                            </NavLink>
+                        )}
                     </div>
                 </div>
             </div>
