@@ -39,7 +39,7 @@ const LoginForm = () => {
             .then((result) => {
                 setUser(result.user);
                 toast.success('Log in Successful.', {
-                    position: "top-center"
+                    position: "top-right"
                 });
                 navigate(location.state?.from || '/');
             })
